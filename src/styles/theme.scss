@@ -1,0 +1,60 @@
+// === VARIÁVEIS DE CORES ===
+$primary-color: #c5a14e;
+$secondary-color: #6c757d;
+$danger-color: #e3342f;
+$success-color: #38c172;
+$warning-color: #ffed4a;
+$text-color: #ffffff;
+
+// === CLASSES UTILITÁRIAS ===
+.primary {
+  background-color: $primary-color;
+  color: $text-color;
+}
+
+.secondary {
+  background-color: $secondary-color;
+  color: $text-color;
+}
+
+.danger {
+  background-color: $danger-color;
+  color: $text-color;
+}
+
+.success {
+  background-color: $success-color;
+  color: $text-color;
+}
+
+.warning {
+  background-color: $warning-color;
+  color: #333;
+}
+
+.text-primary {
+  color: $primary-color !important;
+}
+
+.text-secondary {
+  color: $secondary-color !important;
+}
+
+.text-danger {
+  color: $danger-color !important;
+}
+
+.text-success {
+  color: $success-color !important;
+}
+
+.text-warning {
+  color: $warning-color !important;
+}
+
+// fontes
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
