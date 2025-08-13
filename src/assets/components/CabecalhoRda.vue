@@ -37,13 +37,18 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 .cabecalho-rda {
   background-color: #0a0a0a;
   padding: 10px;
   text-align: center;
   display: flex;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  right: 0;
 }
 
 .title:hover {
