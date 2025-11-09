@@ -99,6 +99,6 @@ h3 {
   font-weight: bold;
 }
 .carousel-caption {
-  margin-bottom: 100px;
+  margin-bottom: 200px;
 }
 </style>

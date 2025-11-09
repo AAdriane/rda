@@ -1,17 +1,29 @@
 <template>
   <div class="card row">
-    <a class="socialContainer containerOne" href="#">
+    <a
+      class="socialContainer containerOne"
+      href="https://instagram.com/rdamoveisplanejados"
+      target="_blank"
+    >
       <font-awesome-icon class="socialSvg" :icon="['fab', 'instagram']" />
     </a>
 
-    <a class="socialContainer containerTwo" href="#">
+    <a
+      class="socialContainer containerTwo"
+      href="https://wa.me/5549933005921"
+      target="_blank"
+    >
       <font-awesome-icon
         class="socialSvg"
         :icon="['fab', 'whatsapp']"
       ></font-awesome-icon>
     </a>
 
-    <a class="socialContainer containerThree" href="#">
+    <a
+      class="socialContainer containerThree"
+      href="https://facebook.com/rdamoveisplanejados"
+      target="_blank"
+    >
       <font-awesome-icon
         class="socialSvg"
         :icon="['fab', 'facebook']"

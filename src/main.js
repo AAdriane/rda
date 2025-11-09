@@ -7,6 +7,9 @@ import { createI18n } from 'vue-i18n';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import en from './locales/en.json';
 import pt from './locales/pt.json';
 import es from './locales/es.json';
@@ -35,6 +38,10 @@ const app = createApp(App);
 app.component('font-awesome-icon', FontAwesomeIcon);
 
 app.use(router);
+
+AOS.init({
+  duration: 1000, // duração em ms
+});
 
 const i18n = createI18n({
   locale: 'pt', // idioma inicial

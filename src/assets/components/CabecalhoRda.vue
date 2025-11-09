@@ -1,39 +1,90 @@
 <template>
-  <div class="cabecalho-rda row">
-    <div class="col">
-      <img alt="RDA logo" class="img-fluid" src="../images/logo-125.png" />
-    </div>
-    <div class="col menu d-none">
-      <menu-cabecalho />
-    </div>
-    <div class="col link">
-      <p class="text-primary title mb-0">{{ $t('INÍCIO') }}</p>
-    </div>
-    <div class="col link">
-      <p class="text-primary title mb-0">{{ $t('SOBRE NÓS') }}</p>
-    </div>
-    <div class="col link">
-      <p class="text-primary title mb-0">{{ $t('PROJETOS') }}</p>
-    </div>
-    <div class="col link">
-      <p class="text-primary title mb-0">{{ $t('SERVIÇOS') }}</p>
-    </div>
-    <div class="col link">
-      <p class="text-primary title mb-0">{{ $t('ORÇAMENTOS') }}</p>
-    </div>
-    <div class="col col-sm-3 link">
-      <redes-sociais />
-    </div>
+  <div>
+    <nav class="cabecalho-rda navbar navbar-expand-lg bg-dark fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img class="img-fluid" src="../images/logo-125.png" alt="RDA logo" />
+        </a>
+
+        <button
+          class="navbar-toggler primary"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <font-awesome-icon :icon="['fas', 'bars']" />
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active text-primary title mb-0"
+                aria-current="page"
+                href="#carouselExampleCaptions"
+                >{{ $t('INÍCIO') }}</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active text-primary title mb-0"
+                aria-current="page"
+                href="#sobre"
+                >{{ $t('SOBRE NÓS') }}</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active text-primary title mb-0"
+                aria-current="page"
+                href="#projetos"
+                >{{ $t('PROJETOS') }}</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active text-primary title mb-0"
+                aria-current="page"
+                href="#servicos"
+                >{{ $t('SERVIÇOS') }}</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active text-primary title mb-0"
+                aria-current="page"
+                href="#orcamentos"
+                >{{ $t('ORÇAMENTOS') }}</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active text-primary title mb-0"
+                aria-current="page"
+                href="#rodape"
+                >{{ $t('CONTATO') }}</a
+              >
+            </li>
+            <li>
+              <a class="nav-link active mb-0" aria-current="page">
+                <redes-sociais></redes-sociais>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   </div>
 </template>
 <script>
 import RedesSociais from './RedesSociais.vue';
-import MenuCabecalho from './MenuCabecalho.vue';
 export default {
   name: 'CabecalhoRda',
   components: {
     RedesSociais,
-    MenuCabecalho,
   },
 };
 </script>
@@ -42,8 +93,6 @@ export default {
   background-color: #0a0a0a;
   padding: 10px;
   text-align: center;
-  display: flex;
-  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -56,14 +105,19 @@ export default {
   cursor: pointer;
 }
 
-@media (max-width: 850px) {
-  .link {
-    display: none;
-  }
+.navbar img {
+  height: 80px;
+  width: auto;
 }
-@media (max-width: 849px) {
-  .menu {
-    display: block !important;
-  }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-item .nav-link {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 15px;
 }
 </style>
