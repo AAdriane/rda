@@ -25,6 +25,7 @@
                 class="nav-link active text-primary title mb-0"
                 aria-current="page"
                 href="#carouselExampleCaptions"
+                @click="collapseNav"
                 >{{ $t('INÍCIO') }}</a
               >
             </li>
@@ -33,6 +34,7 @@
                 class="nav-link active text-primary title mb-0"
                 aria-current="page"
                 href="#sobre"
+                @click="collapseNav"
                 >{{ $t('SOBRE NÓS') }}</a
               >
             </li>
@@ -41,6 +43,7 @@
                 class="nav-link active text-primary title mb-0"
                 aria-current="page"
                 href="#projetos"
+                @click="collapseNav"
                 >{{ $t('PROJETOS') }}</a
               >
             </li>
@@ -49,6 +52,7 @@
                 class="nav-link active text-primary title mb-0"
                 aria-current="page"
                 href="#servicos"
+                @click="collapseNav"
                 >{{ $t('SERVIÇOS') }}</a
               >
             </li>
@@ -57,6 +61,7 @@
                 class="nav-link active text-primary title mb-0"
                 aria-current="page"
                 href="#orcamentos"
+                @click="collapseNav"
                 >{{ $t('ORÇAMENTOS') }}</a
               >
             </li>
@@ -65,6 +70,7 @@
                 class="nav-link active text-primary title mb-0"
                 aria-current="page"
                 href="#rodape"
+                @click="collapseNav"
                 >{{ $t('CONTATO') }}</a
               >
             </li>
@@ -85,6 +91,22 @@ export default {
   name: 'CabecalhoRda',
   components: {
     RedesSociais,
+  },
+  methods: {
+    collapseNav() {
+      const el = document.getElementById('navbarSupportedContent');
+      if (!el) return;
+      // Usa API do Bootstrap se disponível
+      if (window.bootstrap && window.bootstrap.Collapse) {
+        const instance =
+          window.bootstrap.Collapse.getInstance(el) ||
+          new window.bootstrap.Collapse(el, { toggle: false });
+        instance.hide();
+      } else {
+        // fallback simples
+        el.classList.remove('show');
+      }
+    },
   },
 };
 </script>
