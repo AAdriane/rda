@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import App from './assets/pages/IndexRda.vue';
+import App from './App.vue';
 import router from './js/routes.js';
 // tradução
 import { createI18n } from 'vue-i18n';
