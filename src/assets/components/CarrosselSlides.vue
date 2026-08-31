@@ -41,13 +41,22 @@
   </div>
 </template>
 <script>
-// As imagens da pasta public/images/carossel não podem ser listadas em
-// tempo de execução (não há backend), então os arquivos precisam ser
-// declarados aqui. Basta adicionar o nome do arquivo para exibi-lo no carrossel.
+// As imagens das pastas public/images/carossel e public/images/carrossel-mobile
+// não podem ser listadas em tempo de execução (não há backend), então os
+// arquivos precisam ser declarados aqui. Basta adicionar o nome do arquivo
+// para exibi-lo no carrossel.
 const CAROUSEL_IMAGES = [
   'guarda-roupa-carrossel.jpg',
   'cristaleira-carrossel.jpg',
 ];
+
+const CAROUSEL_IMAGES_MOBILE = [
+  'roupeiro-carrossel-mobile-1.png',
+  'roupeiro-carrossel-mobile-2.png',
+  'cristaleira-1.jpeg',
+];
+
+const MOBILE_BREAKPOINT = 768;
 
 const CAPTIONS = [
   {
@@ -71,24 +80,36 @@ export default {
   data() {
     return {
       marginTop: 70,
-      slides: CAROUSEL_IMAGES.map((file, index) => ({
+      isMobile: window.innerWidth <= MOBILE_BREAKPOINT,
+    };
+  },
+  computed: {
+    slides() {
+      const images = this.isMobile ? CAROUSEL_IMAGES_MOBILE : CAROUSEL_IMAGES;
+      const folder = this.isMobile ? 'carrossel-mobile' : 'carossel';
+      return images.map((file, index) => ({
         file,
-        src: `${process.env.BASE_URL}images/carossel/${file}`,
+        src: `${process.env.BASE_URL}images/${folder}/${file}`,
         alt: `slide ${index + 1}`,
         title: CAPTIONS[index]?.title,
         subtitle: CAPTIONS[index]?.subtitle,
-      })),
-    };
+      }));
+    },
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('resize', this.handleResize);
   },
   beforeUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('resize', this.handleResize);
   },
   methods: {
     handleScroll() {
       this.marginTop = window.scrollY === 0 ? 85 : 0;
+    },
+    handleResize() {
+      this.isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
     },
   },
 };
@@ -101,8 +122,14 @@ h3 {
   margin-bottom: 200px;
 }
 .carousel-item img {
-  max-height: 700px;
+  height: 700px;
   width: 100%;
   object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .carousel-item img {
+    height: 400px;
+  }
 }
 </style>
