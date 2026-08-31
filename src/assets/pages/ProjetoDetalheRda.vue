@@ -26,7 +26,7 @@
                     :class="{ active: index === 0 }"
                   >
                     <img
-                      :src="`/images/projetos/${projeto.folder}/${image}`"
+                      :src="`${process.env.BASE_URL}images/projetos/${projeto.folder}/${image}`"
                       class="d-block w-100"
                       :alt="`${projeto.title} - foto ${index + 1}`"
                     />

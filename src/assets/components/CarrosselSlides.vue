@@ -73,7 +73,7 @@ export default {
       marginTop: 70,
       slides: CAROUSEL_IMAGES.map((file, index) => ({
         file,
-        src: `/images/carossel/${file}`,
+        src: `${process.env.BASE_URL}images/carossel/${file}`,
         alt: `slide ${index + 1}`,
         title: CAPTIONS[index]?.title,
         subtitle: CAPTIONS[index]?.subtitle,
