@@ -54,6 +54,7 @@ const CAROUSEL_IMAGES_MOBILE = [
   'roupeiro-carrossel-mobile-1.png',
   'roupeiro-carrossel-mobile-2.png',
   'cristaleira-1.jpeg',
+  'banheiro.jpeg',
 ];
 
 const MOBILE_BREAKPOINT = 768;

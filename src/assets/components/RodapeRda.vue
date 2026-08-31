@@ -32,7 +32,7 @@
                 rdamoveisplanejados@gmail.com.br</a
               >
             </li>
-            <li class="mb-2">
+            <!-- <li class="mb-2">
               <strong
                 ><i class="fas fa-phone me-2"></i>{{ $t('Telefone') }}:</strong
               >
@@ -42,15 +42,18 @@
               >
                 (49) 99999999</a
               >
-            </li>
+            </li> -->
             <li class="mb-2">
-              <strong><i class="fab fa-whatsapp me-2"></i>WhatsApp:</strong>
+              <strong
+                ><i class="fab fa-whatsapp me-2"></i>WhatsApp (Falar com
+                Diego):</strong
+              >
               <a
-                href="https://wa.me/5549933005921"
+                href="https://wa.me/5549920005845"
                 target="_blank"
                 class="text-decoration-none text-primary"
               >
-                (49) 99999999</a
+                (49) 92000-5845</a
               >
             </li>
           </ul>
