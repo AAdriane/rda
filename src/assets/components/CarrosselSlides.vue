@@ -6,49 +6,16 @@
       data-bs-ride="carousel"
     >
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img
-            src="../../../public/images/slide1.jpg"
-            class="d-block w-100"
-            alt="slide 1"
-          />
-          <div class="carousel-caption d-none d-md-block">
-            <h3>{{ $t('Seu espaço, sua Obra-Prima') }}</h3>
-            <h4>
-              {{
-                $t(
-                  'Projetos personalizados para criar ambientes dignos de admiração!'
-                )
-              }}
-            </h4>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img
-            src="../../../public/images/slide2.jpg"
-            class="d-block w-100"
-            alt="slide 2"
-          />
-          <div class="carousel-caption d-none d-md-block">
-            <h3>{{ $t('Praticidade e estilo') }}</h3>
-            <h4>{{ $t('Feito sob medida para o encaixe perfeito!') }}</h4>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img
-            src="../../../public/images/slide3.jpg"
-            class="d-block w-100"
-            alt="..."
-          />
-          <div class="carousel-caption d-none d-md-block">
-            <h3>{{ $t('Aconchego e sofisticação') }}</h3>
-            <h4>
-              {{
-                $t(
-                  'Seu estilo, seu espaço, seus móveis... e o nosso toque especial!'
-                )
-              }}
-            </h4>
+        <div
+          v-for="(slide, index) in slides"
+          :key="slide.file"
+          class="carousel-item"
+          :class="{ active: index === 0 }"
+        >
+          <img :src="slide.src" class="d-block w-100" :alt="slide.alt" />
+          <div v-if="slide.title" class="carousel-caption d-none d-md-block">
+            <h3>{{ $t(slide.title) }}</h3>
+            <h4>{{ $t(slide.subtitle) }}</h4>
           </div>
         </div>
       </div>
@@ -74,11 +41,43 @@
   </div>
 </template>
 <script>
+// As imagens da pasta public/images/carossel não podem ser listadas em
+// tempo de execução (não há backend), então os arquivos precisam ser
+// declarados aqui. Basta adicionar o nome do arquivo para exibi-lo no carrossel.
+const CAROUSEL_IMAGES = [
+  'guarda-roupa-carrossel.jpg',
+  'cristaleira-carrossel.jpg',
+];
+
+const CAPTIONS = [
+  {
+    title: 'Seu espaço, sua Obra-Prima',
+    subtitle:
+      'Projetos personalizados para criar ambientes dignos de admiração!',
+  },
+  {
+    title: 'Praticidade e estilo',
+    subtitle: 'Feito sob medida para o encaixe perfeito!',
+  },
+  {
+    title: 'Aconchego e sofisticação',
+    subtitle:
+      'Seu estilo, seu espaço, seus móveis... e o nosso toque especial!',
+  },
+];
+
 export default {
   name: 'CarrosselSlides',
   data() {
     return {
       marginTop: 70,
+      slides: CAROUSEL_IMAGES.map((file, index) => ({
+        file,
+        src: `/images/carossel/${file}`,
+        alt: `slide ${index + 1}`,
+        title: CAPTIONS[index]?.title,
+        subtitle: CAPTIONS[index]?.subtitle,
+      })),
     };
   },
   mounted() {
@@ -100,5 +99,10 @@ h3 {
 }
 .carousel-caption {
   margin-bottom: 200px;
+}
+.carousel-item img {
+  max-height: 700px;
+  width: 100%;
+  object-fit: cover;
 }
 </style>

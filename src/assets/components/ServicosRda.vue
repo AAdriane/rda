@@ -12,7 +12,7 @@
             <div class="row align-items-center justify-content-center gy-4">
               <div class="col-md-5 text-center" data-aos="zoom-in">
                 <img
-                  src="../../../public/images/marcenaria-montagem.jpg"
+                  src="../../../public/images/inicial/marcenaria-montagem.jpg"
                   class="about-img shadow-sm"
                   :alt="$t('Marcenaria')"
                 />
